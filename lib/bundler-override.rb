@@ -3,9 +3,6 @@ require "set"
 
 require "bundler/friendly_errors"
 
-require_relative "bundler/override/dsl_patch"
-require_relative "bundler/override/dependency_patch"
-
 module Bundler
   module Override
     class << self
@@ -30,6 +27,9 @@ module Bundler
     end
   end
 end
+
+require_relative "bundler/override/dependency_patch"
+require_relative "bundler/override/dsl_patch"
 
 Bundler::Dsl.prepend(Bundler::Override::DslPatch)
 ObjectSpace.each_object(Bundler::Dsl) do |o|
