@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 require "set"
+
+require "bundler/friendly_errors"
+
 require_relative "bundler/override/dsl_patch"
 require_relative "bundler/override/dependency_patch"
-require "bundler/friendly_errors.rb"
 
 module Bundler
   module Override
